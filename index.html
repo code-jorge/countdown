@@ -202,7 +202,11 @@
     }, 1000)
 
     // Function to format time digits (add leading zero if needed)
-    const formatTime = (time)=> time < 10 ? `0${time}` : time
+    const formatTime = (time)=> {
+      if (time < 0) return "00"
+      if (time < 10) return `0${time}`
+      return `${time}`
+    }
 
     // Function to update clock digit with animation
     const updateClockDigit = (id, newValue)=> {
